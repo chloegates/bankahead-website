@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Personal Info — BANKAHEAD{% endblock %}
+
+{% block content %}
+<section class="info-page">
+    <div class="info-page__hero">
+        <h1>Personal Information</h1>
+        <p class="info-page__subtitle">Your profile details on file with BANKAHEAD.</p>
+    </div>
+
+    <div class="profile-card">
+        <div class="profile-row">
+            <span class="profile-label">Name</span>
+            <span class="profile-value">{{ user_info.first_name }} {{ user_info.last_name }}</span>
+        </div>
+        <div class="profile-row">
+            <span class="profile-label">Username</span>
+            <span class="profile-value">{{ username }}</span>
+        </div>
+        <div class="profile-row">
+            <span class="profile-label">Email</span>
+            <span class="profile-value">{{ user_info.email_address }}</span>
+        </div>
+        <div class="profile-row">
+            <span class="profile-label">Phone</span>
+            <span class="profile-value">{{ user_info.phone_number }}</span>
+        </div>
+        <div class="profile-row">
+            <span class="profile-label">Date of Birth</span>
+            <span class="profile-value">{{ user_info.date_of_birth }}</span>
+        </div>
+        <div class="profile-row">
+            <span class="profile-label">Checking Balance</span>
+            <span class="profile-value">${{ "%.2f"|format(user_info.accounts.checking) }}</span>
+        </div>
+        <div class="profile-row">
+            <span class="profile-label">Savings Balance</span>
+            <span class="profile-value">${{ "%.2f"|format(user_info.accounts.savings) }}</span>
+        </div>
+    </div>
+
+    <div class="profile-actions">
+        <a href="{{ url_for('my_accounts') }}" class="button">View Accounts</a>
+        <a href="{{ url_for('support') }}" class="info-page__cta">Contact Support</a>
+    </div>
+</section>
+{% endblock %}

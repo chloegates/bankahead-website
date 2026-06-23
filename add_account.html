@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Add Account — BANKAHEAD{% endblock %}
+
+{% block content %}
+<div class="add__accounts__container">
+    <h1 class="add__accounts_title">Please Select One of the Options</h1>
+
+    <a href="{{ url_for('add_checking_account') }}" class="checking__acc__card">Checking Account</a>
+    <a href="{{ url_for('loans') }}" class="savings__acc__card">Savings Account</a>
+    <a href="{{ url_for('credit_cards') }}" class="credit__card__card">Credit Card</a>
+</div>
+{% endblock %}

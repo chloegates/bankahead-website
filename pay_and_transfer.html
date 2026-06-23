@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Pay and Transfer — BANKAHEAD{% endblock %}
+
+{% block content %}
+<div class="transfer__container">
+    <h1 class="transfer__title">Transfer Money</h1>
+
+    {% if message %}
+    <p class="transfer__message">{{ message }}</p>
+    {% endif %}
+    {% if error %}
+    <p class="transfer__error">{{ error }}</p>
+    {% endif %}
+
+    <div class="transfer__balances">
+        <p>Checking: ${{ "%.2f"|format(accounts["checking"]) }}</p>
+        <p>Savings: ${{ "%.2f"|format(accounts["savings"]) }}</p>
+    </div>
+
+    <form action="{{ url_for('transfer') }}" method="POST" class="transfer__form">
+        <label for="from_account">From Account</label>
+        <select name="from_account" id="from_account" class="transfer__select" required>
+            <option value="checking">Checking Account</option>
+            <option value="savings">Savings Account</option>
+        </select>
+
+        <label for="to_account">To Account</label>
+        <select name="to_account" id="to_account" class="transfer__select" required>
+            <option value="checking">Checking Account</option>
+            <option value="savings">Savings Account</option>
+        </select>
+
+        <label for="amount">Amount</label>
+        <input type="number" name="amount" id="amount" placeholder="Amount" class="transfer__input" min="0.01" step="0.01" required>
+
+        <button type="submit" class="transfer__button">Transfer</button>
+    </form>
+</div>
+{% endblock %}

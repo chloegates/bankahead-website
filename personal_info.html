@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Sign Up — BANKAHEAD{% endblock %}
+
+{% block content %}
+<div class="personal__info">
+    <div class="personal__info__container">
+        <div class="personal__information">Personal Information</div>
+
+        <div class="info__card">
+            <form action="{{ url_for('create_user_password') }}" method="POST">
+                <div class="first_name">
+                    <input type="text" name="first_name" placeholder="First Name" required>
+                </div>
+                <div class="last_name">
+                    <input type="text" name="last_name" placeholder="Last Name" required>
+                </div>
+                <div class="date_of_birth">
+                    <input type="date" name="date_of_birth" required>
+                </div>
+                <div class="phone_number">
+                    <input type="tel" name="phone_number" placeholder="Phone Number" required>
+                </div>
+                <div class="email_address">
+                    <input type="email" name="email_address" placeholder="Email" required>
+                </div>
+                <button type="submit" class="signin__btn">Next</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

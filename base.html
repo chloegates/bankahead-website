@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}BANKAHEAD{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=account_balance" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght,YOPQ@100..900,300&display=swap" rel="stylesheet">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="{% if logged_in %}{{ url_for('home') }}{% else %}{{ url_for('sign_in') }}{% endif %}" id="navbar__logo">
+                <span class="material-symbols-outlined">account_balance</span>BANKAHEAD
+            </a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                {% if logged_in %}
+                <li class="navbar__item">
+                    <a href="{{ url_for('home') }}" class="navbar__links {% if active_page == 'home' %}active{% endif %}">Home</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="{{ url_for('my_accounts') }}" class="navbar__links {% if active_page == 'accounts' %}active{% endif %}">My Accounts</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="{{ url_for('pay_and_transfer') }}" class="navbar__links {% if active_page == 'transfer' %}active{% endif %}">Pay and Transfer</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="{{ url_for('services') }}" class="navbar__links {% if active_page == 'services' %}active{% endif %}">Services</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="{{ url_for('profile') }}" class="navbar__links {% if active_page == 'profile' %}active{% endif %}">Personal Info</a>
+                </li>
+                <li class="navbar__btn">
+                    <a href="{{ url_for('logout') }}" class="button">Log Out</a>
+                </li>
+                {% else %}
+                <li class="navbar__item">
+                    <a href="{{ url_for('personal_banking') }}" class="navbar__links {% if active_page == 'personal' %}active{% endif %}">Personal</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="{{ url_for('business_banking') }}" class="navbar__links {% if active_page == 'business' %}active{% endif %}">Business</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="{{ url_for('commercial_banking') }}" class="navbar__links {% if active_page == 'commercial' %}active{% endif %}">Commercial</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="{{ url_for('community') }}" class="navbar__links {% if active_page == 'community' %}active{% endif %}">Community</a>
+                </li>
+                <li class="navbar__btn">
+                    <a href="{{ url_for('personal_info') }}" class="button">Sign Up</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    {% block content %}{% endblock %}
+
+    {% block footer %}
+    <div class="footer__container">
+        <div class="footer__links">
+            <div class="footer__link--wrapper">
+                <div class="footer__link--items">
+                    <h2>About Us</h2>
+                    <a href="{{ url_for('how_it_works') }}">How it works</a>
+                    <a href="{{ url_for('testimonials') }}">Testimonials</a>
+                    <a href="{{ url_for('careers') }}">Careers</a>
+                    <a href="{{ url_for('investments') }}">Investments</a>
+                    <a href="{{ url_for('terms') }}">Terms of Service</a>
+                </div>
+                <div class="footer__link--items">
+                    <h2>Contact Us</h2>
+                    <a href="{{ url_for('contact') }}">Contact</a>
+                    <a href="{{ url_for('support') }}">Support</a>
+                    <a href="{{ url_for('branches') }}">Branch Locations</a>
+                    <a href="{{ url_for('community') }}">Community</a>
+                </div>
+            </div>
+            <div class="footer__link--wrapper">
+                <div class="footer__link--items">
+                    <h2>Products</h2>
+                    <a href="{{ url_for('personal_banking') }}">Personal Banking</a>
+                    <a href="{{ url_for('business_banking') }}">Business Banking</a>
+                    <a href="{{ url_for('loans') }}">Loans</a>
+                    <a href="{{ url_for('credit_cards') }}">Credit Cards</a>
+                </div>
+                <div class="footer__link--items">
+                    <h2>Resources</h2>
+                    <a href="{{ url_for('mobile_banking') }}">Mobile Banking</a>
+                    <a href="{{ url_for('security') }}">Security</a>
+                    <a href="{{ url_for('rates') }}">Rates</a>
+                    <a href="{{ url_for('faq') }}">FAQ</a>
+                </div>
+            </div>
+        </div>
+        <div class="social__media">
+            <div class="social__media--wrap">
+                <div class="footer__logo">
+                    <a href="{% if logged_in %}{{ url_for('home') }}{% else %}{{ url_for('sign_in') }}{% endif %}" id="footer__logo">
+                        <span class="material-symbols-outlined">account_balance</span>
+                        BANKAHEAD
+                    </a>
+                </div>
+                <p class="website__rights">© BANKAHEAD 2026. All rights reserved</p>
+                <div class="social__icons">
+                    <a href="https://facebook.com" class="social__icons--link" target="_blank" rel="noopener">Facebook</a>
+                    <a href="https://instagram.com" class="social__icons--link" target="_blank" rel="noopener">Instagram</a>
+                    <a href="https://twitter.com" class="social__icons--link" target="_blank" rel="noopener">Twitter</a>
+                    <a href="https://linkedin.com" class="social__icons--link" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

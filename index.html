@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}BANKAHEAD — Home{% endblock %}
+
+{% block content %}
+<div class="main">
+    <div class="main__container">
+        <div class="home__content">
+            <h1>Welcome Back</h1>
+            <h2>{{ first_name }}</h2>
+            <p>Check Your Account</p>
+            <button class="main__btn"><a href="{{ url_for('my_accounts') }}">Go to Accounts</a></button>
+        </div>
+    </div>
+</div>
+
+<div class="services">
+    <h1>Join the smarter way to bank</h1>
+    <div class="services__container">
+        <a href="{{ url_for('mobile_banking') }}" class="services__card services__card--link">
+            <h2>Expense Tracker</h2>
+            <p>AI Powered Technology</p>
+            <span class="services__card-btn">Get Started</span>
+        </a>
+        <a href="{{ url_for('investments') }}" class="services__card services__card--link">
+            <h2>Master Your Money</h2>
+            <p>Take The Leap</p>
+            <span class="services__card-btn">Get Started</span>
+        </a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Open Checking — BANKAHEAD{% endblock %}
+
+{% block content %}
+<div class="add_checking_account_container">
+    <h1 class="add_checking_account_title">Open a Checking Account</h1>
+
+    <form action="{{ url_for('my_accounts') }}" method="GET" class="personal_information">
+        <input type="text" name="first_name" placeholder="First Name" class="transfer__input" required>
+        <input type="text" name="last_name" placeholder="Last Name" class="transfer__input" required>
+        <input type="email" name="email" placeholder="Email Address" class="transfer__input" required>
+        <input type="tel" name="phone" placeholder="Phone Number" class="transfer__input" required>
+        <input type="number" name="initial_deposit" placeholder="Initial Deposit ($)" class="transfer__input" min="0" step="0.01">
+        <button type="submit" class="transfer__button">Submit Application</button>
+    </form>
+
+    <p class="info-page__note">Your application will be reviewed within one business day. Visit <a href="{{ url_for('branches') }}">Branch Locations</a> to open instantly in person.</p>
+</div>
+{% endblock %}

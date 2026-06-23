@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} — BANKAHEAD{% endblock %}
+
+{% block content %}
+<section class="info-page">
+    <div class="info-page__hero">
+        <h1>{{ page.headline }}</h1>
+        <p class="info-page__subtitle">{{ page.subtitle }}</p>
+    </div>
+
+    <div class="info-page__content">
+        {% for section in page.sections %}
+        <div class="info-page__card">
+            <h2>{{ section.title }}</h2>
+            <p>{{ section.body }}</p>
+            {% if section.cta_url and section.cta_label %}
+            <a href="{{ section.cta_url }}" class="info-page__cta">{{ section.cta_label }}</a>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+    {% if page.features %}
+    <div class="info-page__features">
+        {% for feature in page.features %}
+        <div class="info-page__feature">
+            <span class="info-page__feature-icon">{{ feature.icon }}</span>
+            <h3>{{ feature.title }}</h3>
+            <p>{{ feature.body }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</section>
+{% endblock %}

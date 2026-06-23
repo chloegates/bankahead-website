@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Services — BANKAHEAD{% endblock %}
+
+{% block content %}
+<section class="info-page">
+    <div class="info-page__hero">
+        <h1>Banking Services</h1>
+        <p class="info-page__subtitle">Everything you need to manage, move, and grow your money.</p>
+    </div>
+
+    <div class="services__container services__container--page">
+        <a href="{{ url_for('pay_and_transfer') }}" class="services__card services__card--link">
+            <h2>Pay &amp; Transfer</h2>
+            <p>Move money between your accounts instantly</p>
+            <span class="services__card-btn">Open</span>
+        </a>
+        <a href="{{ url_for('my_accounts') }}" class="services__card services__card--link">
+            <h2>Account Overview</h2>
+            <p>View checking, savings, and balances</p>
+            <span class="services__card-btn">Open</span>
+        </a>
+        <a href="{{ url_for('mobile_banking') }}" class="services__card services__card--link">
+            <h2>Mobile Banking</h2>
+            <p>Deposit checks, pay bills, and more on the go</p>
+            <span class="services__card-btn">Learn More</span>
+        </a>
+        <a href="{{ url_for('loans') }}" class="services__card services__card--link">
+            <h2>Loans</h2>
+            <p>Auto, home, and personal lending options</p>
+            <span class="services__card-btn">Learn More</span>
+        </a>
+        <a href="{{ url_for('credit_cards') }}" class="services__card services__card--link">
+            <h2>Credit Cards</h2>
+            <p>Rewards cards with no annual fee</p>
+            <span class="services__card-btn">Learn More</span>
+        </a>
+        <a href="{{ url_for('investments') }}" class="services__card services__card--link">
+            <h2>Investments</h2>
+            <p>Plan for retirement and long-term goals</p>
+            <span class="services__card-btn">Learn More</span>
+        </a>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}My Accounts — BANKAHEAD{% endblock %}
+
+{% block content %}
+<div class="accounts__container">
+    <h1 class="accounts_title">Internal Accounts</h1>
+    <h2 class="total__deposits">Total Deposits: ${{ "%.2f"|format(total) }}</h2>
+
+    <div class="accounts__form">
+        <h2 class="checking__card">Checking Account: ${{ "%.2f"|format(accounts["checking"]) }}</h2>
+        <h2 class="savings__card">Savings Account: ${{ "%.2f"|format(accounts["savings"]) }}</h2>
+    </div>
+
+    <a href="{{ url_for('add_account') }}" class="add__account__btn">Add Account</a>
+    <a href="{{ url_for('pay_and_transfer') }}" class="add__account__btn add__account__btn--secondary">Transfer Money</a>
+</div>
+{% endblock %}

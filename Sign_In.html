@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}BANKAHEAD — Sign In{% endblock %}
+
+{% block content %}
+<div class="main">
+    <div class="main__container">
+        <div class="main__content">
+            <h1>Ready to make a</h1>
+            <h2>move?</h2>
+            <p>See what makes us different.</p>
+            <button class="main__btn"><a href="{{ url_for('personal_info') }}">Get Started</a></button>
+        </div>
+
+        <div class="signin__card">
+            <div class="signin__container">
+                <div class="signin__title">
+                    <h1>Login</h1>
+                </div>
+
+                {% if error %}
+                <p class="signin__error">{{ error }}</p>
+                {% endif %}
+
+                <form action="{{ url_for('sign_in') }}" method="POST">
+                    <div class="signin__username">
+                        <input type="text" name="username" placeholder="Username" required>
+                    </div>
+                    <div class="signin__password">
+                        <input type="password" name="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="signin__btn">Submit</button>
+                </form>
+
+                <div class="signup__dont__have__account">
+                    Don't have an account?<br>
+                    <a href="{{ url_for('personal_info') }}" class="signup">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="services">
+    <h1>Join the smarter way to bank</h1>
+    <div class="services__container">
+        <a href="{{ url_for('mobile_banking') }}" class="services__card services__card--link">
+            <h2>Expense Tracker</h2>
+            <p>AI Powered Technology</p>
+            <span class="services__card-btn">Get Started</span>
+        </a>
+        <a href="{{ url_for('investments') }}" class="services__card services__card--link">
+            <h2>Master Your Money</h2>
+            <p>Take The Leap</p>
+            <span class="services__card-btn">Get Started</span>
+        </a>
+    </div>
+</div>
+{% endblock %}

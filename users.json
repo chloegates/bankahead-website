@@ -1,0 +1,38 @@
+{
+    "chloe123": {
+        "password": "1234",
+        "accounts": {
+            "checking": 1000,
+            "savings": 500
+        },
+        "first_name": "Chloe",
+        "last_name": "Gates",
+        "email_address": "cgates123@gmail.com",
+        "phone_number": "470-582-8286",
+        "date_of_birth": "11/19/2002"
+    },
+    "mike22": {
+        "password": "abcd",
+        "accounts": {
+            "checking": 2996.0,
+            "savings": 1204.0
+        },
+        "first_name": "Mike",
+        "last_name": "Jacobs",
+        "email_address": "mjacobs456@gmail.com",
+        "phone_number": "404-252-88745",
+        "date_of_birth": "09/10/2000"
+    },
+    "Sam_Jenkins": {
+        "password": "rikrAh-koqpet-cektu8",
+        "accounts": {
+            "checking": 0,
+            "savings": 0
+        },
+        "first_name": "Emily",
+        "last_name": "Jenkins",
+        "email_address": "emilyjenkins@gmail.com",
+        "phone_number": "568-878-9009",
+        "date_of_birth": "2002-06-24"
+    }
+}
